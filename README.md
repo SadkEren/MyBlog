@@ -12,3 +12,11 @@ CRUD function.
 
 admin@gmail.com
 password
+
+
+
+
+
+composer require laravel/breeze --dev | 
+php artisan breeze:install
+
