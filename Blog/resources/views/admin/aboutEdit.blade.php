@@ -63,25 +63,34 @@
             <div class="card shadow mb-4">
                 <div class="card-body">
 
-                    <form action="{{url('/admin/addAboutImageEdit'.$gel->id)}}" method="POST">
-                        {{ csrf_field() }}
+    
+                    <a href="/images/{{$gel->aboutImage}}" download>
+                        <img 
+                        src="/images/{{$gel->aboutImage}}" 
+                        alt="..." 
+                        class="img-fluid img-thumbnail mt-4 mb-2" 
+                        style="width: 450px; z-index: 1" >
+                    </a>
+
+                    <input type="hidden" name="aboutImage" value="{{$gel->aboutImage}}">
+                    
+                    @if($gel->aboutImage)
+                    <a href="{{url('admin/deleteImage/'.$gel->id)}}" class="btn btn-danger">Delete</a>
+                    @endif
+
+
+                    <form action="{{url('/admin/saveNewImage/'.$gel->id)}}" enctype="multipart/form-data" method="POST">
+                    {{ csrf_field() }}
+                    @method('PUT')
                         
-                        <div>
-                            <a href="/images/{{$gel->aboutImage}}" download>
-                                <img 
-                                src="/images/{{$gel->aboutImage}}" 
-                                alt="Generic placeholder image" 
-                                class="img-fluid img-thumbnail mt-4 mb-2" 
-                                style="width: 450px; z-index: 1">
-
-                                <a href="{{url('deleteImage'.$gel->id)}}" class="btn btn-danger">Delete</a>
-
-                            </a>
-                        </div><br>
                         <label>Upload Image</label>
-                        <input type="file" name="aboutImage" required class="form-control" ><br>  
-                        <button class="btn btn-primary " type="submit" id="button-addon2">New Image Save</button>
+                        <div class="input-group mb-3"> 
+                            <input type="file" name="aboutImage" required class="form-control" >
+                            <button class="btn btn-primary" type="submit">New Image Save</button>
+                        </div>
+
                     </form>
+
                 </div>
             </div>
         </div>

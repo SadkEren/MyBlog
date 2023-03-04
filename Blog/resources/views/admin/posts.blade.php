@@ -23,25 +23,25 @@
                                     <th></th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th>Up Title</th>
-                                    <th>Title</th>
-                                    <th>Content</th>
-                                    <th>Post Image</th>
-                                    <th>User Name</th>
-                                    <th></th>
-                                </tr>
-                            </tfoot>
+                            
                             <tbody>
                                 @foreach ($gel as $a)                       
                                 <tr>
                                     <td>{{$a->upTitle}}</td>
                                     <td>{{$a->title}}</td>
-                                    <td>{{$a->contact}}</td>
-                                    <td>{{$a->postImage}}</td>
+                                    <td>content</td>
+                                    <td>
+                                        <img 
+                                        src="/images/{{$a->postImage}}" 
+                                        alt="..." 
+                                        class="img-fluid img-thumbnail  mb-2" 
+                                        style="width: 150px; z-index: 1" >
+                                    </td>
                                     <td>{{$a->userName}}</td>
-                                    <th></th>                                  
+                                    <th>
+                                        <a class="btn btn-primary" href="{{url('admin/postEditGet',$a->id) }}"> Edit</a>
+                                        <a class="btn btn-danger" href="{{url('admin/postDelete',$a->id) }}"> Delete</a>     
+                                    </th>                                  
                                 </tr>
                                 @endforeach
                             </tbody>

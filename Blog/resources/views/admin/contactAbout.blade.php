@@ -33,7 +33,13 @@
                                     <td>{{$a->upTitle}}</td>
                                     <td>{{$a->title}}</td>
                                     <td></td>
-                                    <td>{{$a->aboutImage}}</td>
+                                    <td>
+                                        <img 
+                                        src="/images/{{$a->aboutImage}}" 
+                                        alt="..." 
+                                        class="img-fluid img-thumbnail  mb-2" 
+                                        style="width: 100px; z-index: 1" >
+                                    </td>
                                     <th>
                                         <a class="btn btn-primary" href="{{url('admin/aboutEditGet',$a->id) }}"> Edit</a>
                                         <a class="btn btn-danger" href="{{url('admin/aboutDelete',$a->id) }}"> Delete</a>
@@ -67,8 +73,8 @@
                                     <td>{{$a->twitter}}</td>
                                     <td>{{$a->linkedin}}</td>
                                     <th>
-                                        <button class="btn btn-primary">Edit</button>
-                                        <button class="btn btn-danger">Delete</button>    
+                                        <a class="btn btn-primary" href="{{url('admin/contactEditGet',$a->id) }}"> Edit</a>
+                                        <a class="btn btn-danger" href="{{url('admin/contactDelete',$a->id) }}"> Delete</a> 
                                     </th>                                  
                                 </tr>
                                 @endforeach

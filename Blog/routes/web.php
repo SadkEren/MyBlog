@@ -55,5 +55,21 @@ Route::get('admin/aboutDelete/{id}',[AdminController::class,'aboutDelete'])->mid
 
 Route::post('/admin/addAboutSettingEdit/{id}',[AdminController::class,'addAboutSettingEdit'])->middleware('auth')->name('addAboutSettingEdit');
 Route::post('/admin/addAboutEdit/{id}',[AdminController::class,'addAboutEdit'])->middleware('auth')->name('addAboutEdit');
-Route::get('deleteImage/{id}',[AdminController::class,'deleteImage'])->middleware('auth')->name('deleteImage');
 Route::get('admin/aboutDelete/{id}',[AdminController::class,'aboutDelete'])->middleware('auth')->name('aboutDelete');
+//aboutImageEdit
+Route::get('admin/deleteImage/{id}',[AdminController::class,'deleteImage'])->middleware('auth')->name('deleteImage');
+Route::put('/admin/saveNewImage/{id}',[AdminController::class,'saveNewImage'])->middleware('auth')->name('saveNewImage');
+
+Route::get('/admin/contactEditGet/{id}',[AdminController::class,'contactEditGet'])->middleware('auth')->name('contactEditGet');
+Route::get('admin/contactDelete/{id}',[AdminController::class,'contactDelete'])->middleware('auth')->name('contactDelete');
+Route::post('/admin/contactEdit/{id}',[AdminController::class,'contactEdit'])->middleware('auth')->name('contactEdit');
+
+//Posts
+Route::get('/admin/postEditGet/{id}',[AdminController::class,'postEditGet'])->middleware('auth')->name('postEditGet');
+Route::post('/admin/postEdit/{id}',[AdminController::class,'postEdit'])->middleware('auth')->name('postEdit');
+
+Route::get('admin/deletePostImage/{id}',[AdminController::class,'deletePostImage'])->middleware('auth')->name('deletePostImage');
+Route::put('/admin/saveNewPostImage/{id}',[AdminController::class,'saveNewPostImage'])->middleware('auth')->name('saveNewPostImage');
+Route::get('admin/postDelete/{id}',[AdminController::class,'postDelete'])->middleware('auth')->name('postDelete');
+
+
